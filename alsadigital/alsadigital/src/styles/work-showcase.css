@@ -1,0 +1,49 @@
+#work-showcase {
+	position: relative;
+	margin-top: 60px; /* Increased margin at the top */
+	padding: 0 20px; /* Add padding to the sides */
+}
+
+.carousel {
+	display: flex;
+	overflow: hidden;
+	width: 100%;
+	gap: 10px; /* Add small padding between images */
+}
+
+.carousel-item {
+	min-width: calc(33.33% - 10px); /* Adjust for padding */
+	transition: transform 0.5s ease-in-out; /* Add transition effect */
+}
+
+.carousel-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Cover the whole space */
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.5s ease-in-out; /* Add transition effect */
+}
+
+.carousel-item img:hover {
+	transform: scale(1.05); /* Add hover effect */
+}
+
+.carousel-control {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.carousel-control.prev {
+	left: 10px;
+}
+
+.carousel-control.next {
+	right: 10px;
+}

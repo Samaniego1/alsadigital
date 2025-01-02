@@ -1,0 +1,35 @@
+---
+import Banner1 from '../../public/Banner1.png';
+import Banner2 from '../../public/Banner2.png';
+import '../styles/main.css';
+// Ensure these paths are correct and the images exist at these locations
+
+---
+---
+
+<div id="banner">
+	<img id="banner1" src={Banner1.src} alt="Banner 1" class="banner-image" />
+	<img id="banner2" src={Banner2.src} alt="Banner 2" class="banner-image" />
+	<div id="banner-controls">
+		<span class="dot" onclick="showBanner(1)"></span>
+		<span class="dot" onclick="showBanner(2)"></span>
+	</div>
+</div>
+
+<script>
+function showBanner(bannerNumber: number) {
+	const banner1 = document.getElementById('banner1');
+	const banner2 = document.getElementById('banner2');
+	if (bannerNumber === 1) {
+		if (banner1) banner1.style.opacity = '1';
+		if (banner2) banner2.style.opacity = '0';
+	} else {
+		if (banner1) banner1.style.opacity = '0';
+		if (banner2) banner2.style.opacity = '1';
+	}
+}
+
+document.querySelectorAll('.dot').forEach((dot, index) => {
+	dot.addEventListener('click', () => showBanner(index + 1));
+});
+</script>

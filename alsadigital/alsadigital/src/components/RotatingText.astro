@@ -1,0 +1,28 @@
+<div id="rotating-text">
+	<span>Desarrollo ecommerce | Migraciones | Masterclass | Integraciones</span>
+</div>
+
+<style>
+	#rotating-text {
+		font-size: 24px;
+		font-weight: bold;
+		margin-top: 20px;
+		white-space: nowrap;
+		overflow: hidden;
+		width: 100%;
+		box-sizing: border-box;
+		letter-spacing: 0.1em; /* Add space between letters */
+	}
+
+	#rotating-text span {
+		display: inline-block;
+		padding-left: 100%;
+		padding-right: 100%; /* Add space between text */
+		animation: scrollText 30s linear infinite; /* Slower animation */
+	}
+
+	@keyframes scrollText {
+		0% { transform: translateX(100%); }
+		100% { transform: translateX(-100%); }
+	}
+</style>

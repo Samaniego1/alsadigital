@@ -1,0 +1,17 @@
+---
+//import Logo from '../assets/LogoSVG.svg';
+import Logo from './Logo.png'
+import Banner from './Banner.astro';
+import RotatingText from './RotatingText.astro';
+import Carousel from './Carousel.astro';
+import Slideshow from './Slideshow.astro';
+import '../styles/main.css';
+---
+
+<div id="container">
+	<img id="background" src="../assets/images/background.svg" alt="" fetchpriority="high" />
+	<Banner />
+	<RotatingText />
+	<Carousel />
+	<Slideshow />
+</div>

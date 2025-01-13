@@ -1,16 +1,17 @@
+// filepath: /home/samaniego10/code/alsadigital/src/pages/Home.jsx
 import React from 'react';
 import Slide from '../components/Slide';
-import { ArrowUpLeft } from 'phosphor-react';
+import Banner from '../components/Banner';
+
 
 const Home = () => {
+    console.log('Home component rendered');
     return (
         <div className='home-styled'>
-            <div className='title'>
-                <h1>Reserva tu cupo!</h1>
-                <span><ArrowUpLeft size={29} />Colección</span>
-            </div>
+            <Banner />
             <Slide />
         </div>
     );
-} 
+};
+
 export default Home;

@@ -39,8 +39,11 @@ button{
     font-weight: inherit;
     text-transform: inherit;
 }
+span{
+    cursor: pointer;
+}
 
-@import './Header.scss';
-@import './Footer.scss';
 @import './Home.scss';
 @import './Slide.scss';
+@import './Navbar.scss';
+@import './Banner.scss';

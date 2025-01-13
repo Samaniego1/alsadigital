@@ -1,16 +1,17 @@
+
 import React from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
 import Home from './pages/Home';
-import './styles/Global.scss'
+import './styles/Global.scss';
+import Navbar from './components/Navbar';
 
 const App = () => {
+    console.log('App component rendered');
     return (
         <>
-            <Header />
+            <Navbar />
             <Home />
-            <Footer />
         </>
     );
-} 
+};
+
 export default App;

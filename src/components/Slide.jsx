@@ -16,28 +16,19 @@ import 'swiper/css/effect-coverflow';
 
 const Slide = () => {
     const swiperRef = useRef(null);
-    const images = [
-        { src: B01, link: 'https://placeholder-link1.com' },
-        { src: B02, link: 'https://placeholder-link2.com' },
-        { src: B03, link: 'https://placeholder-link3.com' },
-        { src: B04, link: 'https://placeholder-link4.com' },
-        { src: B05, link: 'https://placeholder-link5.com' },
-        { src: B06, link: 'https://placeholder-link6.com' },
-    ];
+    const images = [B01, B02, B03, B04, B05, B06];
 
-    const handleImageClick = (index) => {
+    const handleSlideClick = (index) => {
         if (swiperRef.current) {
-            const currentIndex = swiperRef.current.realIndex;
-            if (currentIndex === index) {
-                // If the clicked image is already centered, open the link
-                window.open(images[index].link, '_blank');
-            } else {
-                // Center the clicked image
-                swiperRef.current.slideToLoop(index);
-            }
+            const totalSlides = images.length;
+            const slidesPerView = 3; // Adjust this if you change slidesPerView
+            const centerIndex = Math.floor(slidesPerView / 2);
+            const newIndex = (index - centerIndex + totalSlides) % totalSlides;
+            swiperRef.current.slideTo(newIndex);
         }
     };
 
+    console.log('Slide component rendered');
     return (
         <div className='slider-container'>
             <Swiper
@@ -45,10 +36,7 @@ const Slide = () => {
                 grabCursor={true}
                 centeredSlides={true}
                 loop={true}
-                slidesPerView={1}
-                allowTouchMove={true} // Habilitar desplazamiento táctil
-                preventClicksPropagation={false} // Permitir clics
-                touchRatio={1.5} // Ajustar sensibilidad táctil
+                slidesPerView={3}
                 coverflowEffect={{
                     rotate: 0,
                     stretch: -75,
@@ -69,35 +57,27 @@ const Slide = () => {
                         spaceBetween: 10,
                     },
                     480: {
-                        slidesPerView: 1.5,
-                        spaceBetween: 15,
-                    },
-                    640: {
                         slidesPerView: 2,
                         spaceBetween: 20,
                     },
-                    768: {
+                    640: {
                         slidesPerView: 3,
-                        spaceBetween: 10,
+                        spaceBetween: 30,
                     },
                 }}
             >
                 {images.map((image, index) => (
                     <SwiperSlide key={index}>
-                        <img
-                            src={image.src}
-                            alt={`slide-${index}`}
-                            onClick={() => handleImageClick(index)}
-                        />
+                        <img src={image} alt={`slide-${index}`} onClick={() => handleSlideClick(index)} />
                     </SwiperSlide>
                 ))}
-
-                <div className='slider-controler'>
+                
+                <div className='slider-controler'> 
                     <div className='swiper-button-prev'>
-                        <ArrowLeft size={20} />
+                        <ArrowLeft size={20}/>
                     </div>
                     <div className='swiper-button-next'>
-                        <ArrowRight size={20} />
+                        <ArrowRight size={20}/>
                     </div>
                 </div>
             </Swiper>
@@ -106,4 +86,3 @@ const Slide = () => {
 };
 
 export default Slide;
-

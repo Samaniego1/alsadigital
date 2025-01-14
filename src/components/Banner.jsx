@@ -20,7 +20,7 @@ const Banner = () => {
     useEffect(() => {
         // Update `isMobile` dynamically on window resize
         const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768);
+            setIsMobile(window.innerWidth <= 768);3
         };
 
         window.addEventListener('resize', handleResize);
@@ -32,7 +32,7 @@ const Banner = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             handleNext();
-        }, 7000); // Change image every 7 seconds
+        }, 4000); // Change image every 4 seconds
         return () => clearInterval(interval); // Cleanup on unmount
     }, [currentIndex]);
 
@@ -41,7 +41,7 @@ const Banner = () => {
         setTimeout(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
             setIsTransitioning(false);
-        }, 500); // Match the CSS transition duration
+        }, 300); // Match the CSS transition duration (faster)
     };
 
     const handlePrev = () => {
@@ -49,7 +49,7 @@ const Banner = () => {
         setTimeout(() => {
             setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
             setIsTransitioning(false);
-        }, 500);
+        }, 300);
     };
 
     const handleTouchStart = (e) => {
@@ -108,11 +108,11 @@ const Banner = () => {
                     alt={`Slide ${currentIndex + 1}`}
                     className="banner-image fade-effect"
                 />
-                <button className="banner-arrow banner-prev" onClick={handlePrev}>
-                    &#9664; {/* Left arrow */}
+                <button className="banner-arrow banner-prev no-background" onClick={handlePrev}>
+                    <span className="arrow">&larr;</span>
                 </button>
-                <button className="banner-arrow banner-next" onClick={handleNext}>
-                    &#9654; {/* Right arrow */}
+                <button className="banner-arrow banner-next no-background" onClick={handleNext}>
+                    <span className="arrow">&rarr;</span>
                 </button>
                 <div className="banner-dots">
                     {images.map((_, index) => (
